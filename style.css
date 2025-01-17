@@ -1,0 +1,260 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* App Bar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 50px 0; /* Adjust height of app bar by increasing padding */
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    max-height: 50px;
+}
+
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.search-btn {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.search-btn i {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Carousel Section */
+.carousel {
+    overflow: hidden;
+    position: relative;
+    height: 700px; /* Adjust the height of the carousel slide */
+}
+
+.slides {
+    display: flex;
+    width: 300%; /* Adjust for the number of slides */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%; /* Each slide takes up 100% of the carousel width */
+    height: 100%; /* Set height to 100% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensures image covers the entire slide */
+    background-position: center; /* Centers the image */
+}
+
+.carousel-video {
+    width: 100%;      /* Make video full width */
+    height: 100%;     /* Make video full height */
+    object-fit: fill;  /* Ensures the video covers the entire area of the carousel without leaving space */
+    object-position: center;  /* Ensures the video is centered */
+}
+
+
+/* Info Section Styling */
+.info-section {
+    padding: 80px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.info-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background-color: #ffffff;
+    width: 280px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.info-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-box i {
+    font-size: 40px;
+    color: #5c6bc0;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.info-box:hover i {
+    color: #3f51b5;
+}
+
+.info-box h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .info-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-container .about-us, .footer-container .social-links, .footer-container .contact-info, .footer-container .quick-links {
+    width: 22%;
+}
+
+.social-links ul {
+    list-style: none;
+}
+
+.social-links ul li {
+    margin-bottom: 10px;
+}
+
+.social-links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.quick-links ul {
+    list-style: none;
+}
+
+.quick-links ul li {
+    margin-bottom: 10px;
+}
+
+.quick-links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-note {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container .about-us, 
+    .footer-container .social-links, 
+    .footer-container .contact-info, 
+    .footer-container .quick-links {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.bg-dark {
+    background-color: #333;
+}
+
+.bg-light {
+    background-color: #f4f4f4;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-blue {
+    color: #007bff;
+}
