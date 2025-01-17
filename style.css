@@ -53,6 +53,32 @@ nav ul li a {
     font-weight: 500;
 }
 
+/* Search Input Styling */
+.search-container {
+    display: none; /* Hidden by default */
+    transition: transform 0.3s ease;
+}
+
+.search-container.visible {
+    display: block; /* Show input when toggled */
+    transform: translateY(10px);
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 30px;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+#search-input:focus {
+    width: 300px; /* Expands when focused */
+    border-color: #5c6bc0; /* Change border color when focused */
+}
+
 .search-btn {
     background-color: #f1f1f1;
     border: none;
@@ -63,40 +89,30 @@ nav ul li a {
 
 .search-btn i {
     font-size: 18px;
-    color: #333;
 }
 
-/* Carousel Section */
+/* Carousel Styling */
 .carousel {
+    margin-top: 120px; /* Adjust based on the header height */
     overflow: hidden;
     position: relative;
-    height: 700px; /* Adjust the height of the carousel slide */
 }
 
 .slides {
     display: flex;
-    width: 300%; /* Adjust for the number of slides */
-    transition: transform 0.5s ease-in-out;
+    transition: transform 1s ease;
 }
 
 .slide {
-    flex: 0 0 100%; /* Each slide takes up 100% of the carousel width */
-    height: 100%; /* Set height to 100% */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover; /* Ensures image covers the entire slide */
-    background-position: center; /* Centers the image */
+    min-width: 100%;
+    height: 500px;
 }
 
 .carousel-video {
-    width: 100%;      /* Make video full width */
-    height: 100%;     /* Make video full height */
-    object-fit: fill;  /* Ensures the video covers the entire area of the carousel without leaving space */
-    object-position: center;  /* Ensures the video is centered */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
-
 /* Info Section Styling */
 .info-section {
     padding: 80px 20px;
@@ -168,93 +184,66 @@ nav ul li a {
     }
 }
 
-/* Footer */
+
+/* Footer Styling */
 footer {
     background-color: #333;
     color: #fff;
-    padding: 50px 0;
-    text-align: center;
+    padding: 60px 20px;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    flex-wrap: wrap;
 }
 
-.footer-container .about-us, .footer-container .social-links, .footer-container .contact-info, .footer-container .quick-links {
-    width: 22%;
+.footer-container div {
+    width: 23%;
+    margin-bottom: 20px;
 }
 
-.social-links ul {
-    list-style: none;
-}
-
-.social-links ul li {
+footer h3 {
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
-.social-links ul li a {
+footer p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+footer a {
     color: #fff;
     text-decoration: none;
+    font-size: 14px;
 }
 
-.quick-links ul {
-    list-style: none;
-}
-
-.quick-links ul li {
-    margin-bottom: 10px;
-}
-
-.quick-links ul li a {
-    color: #fff;
-    text-decoration: none;
+footer a:hover {
+    color: #5c6bc0;
 }
 
 .footer-note {
-    margin-top: 20px;
-    font-weight: bold;
-    color: #ddd;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
 }
 
-/* Responsive Design */
+/* Media Query for Small Screens */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .footer-container .about-us, 
-    .footer-container .social-links, 
-    .footer-container .contact-info, 
-    .footer-container .quick-links {
+    .footer-container div {
         width: 100%;
-        margin-bottom: 20px;
+        text-align: center;
     }
-}
 
-/* Utility Classes */
-.text-center {
-    text-align: center;
-}
-
-.text-bold {
-    font-weight: bold;
-}
-
-.bg-dark {
-    background-color: #333;
-}
-
-.bg-light {
-    background-color: #f4f4f4;
-}
-
-.text-white {
-    color: #fff;
-}
-
-.text-blue {
-    color: #007bff;
+    .search-container {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+    }
 }
