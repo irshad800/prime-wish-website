@@ -15,9 +15,7 @@ html {
     scroll-behavior: smooth;
 }
 
-
 /* App Bar */
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -188,6 +186,7 @@ nav ul li a {
     height: 100%;
     object-fit: cover;
 }
+
 /* Info Section Styling */
 .info-section {
     padding: 80px 20px;
@@ -258,8 +257,6 @@ nav ul li a {
         align-items: center;
     }
 }
-
-
 /* Footer Styling */
 footer {
     background-color: #333;
@@ -302,6 +299,13 @@ footer a:hover {
     text-align: center;
     font-size: 14px;
     margin-top: 30px;
+}
+
+/* Remove dots (bullet points) from footer lists */
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* Media Query for Small Screens */
