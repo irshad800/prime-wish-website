@@ -14,8 +14,7 @@
         <div class="container">
             <img src="image.png" alt="Prime Wish" class="logo">
             <nav class="navbar">
-              
-                <button class="menu-toggle" id="menuToggle">
+               <button class="menu-toggle" id="menuToggle">
                     &#9776; <!-- Menu icon -->
                 </button>
                 <ul class="nav-links" id="navLinks">
@@ -51,7 +50,6 @@
         </div>
     </section>
 
-    
     <!-- Info Section -->
     <section id="about" class="info-section">
         <h2 class="section-title">Our Core Values</h2>
@@ -80,6 +78,7 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer>
         <div class="footer-container">
             <div class="about-us">
@@ -91,10 +90,10 @@
             <div class="social-links">
                 <h3>Follow Us</h3>
                 <ul>
-                    <li><a href="#"><i class="https://www.facebook.com/people/Prime-Wish-AE/pfbid0kjgYb5Jr5axKCJiURz6cVArbYSfk4hxNuyRQAZu4QaS5qwMEgie3Xd29KCzQ6rAal/"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
                     <li><a href="https://x.com/prime_wish"><i class="fab fa-twitter"></i> X (Twitter)</a></li>
-                    <li><a href="#"><i class=""></i> Instagram</a></li>
-                    <li><a href="https://www.youtube.com/@PRfab fa-instagramIMEWISHTRADING"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.youtube.com/@PRIMEWISHTRADING"><i class="fab fa-youtube"></i> YouTube</a></li>
                 </ul>
             </div>
             <div class="contact-info">
@@ -119,8 +118,10 @@
         </div>
         <p class="footer-note">Prime of your Life</p>
     </footer>
+
     <!-- JavaScript -->
     <script>
+        // Toggle Search Bar
         function toggleSearch() {
             const searchInput = document.getElementById('search-input');
             const searchContainer = document.getElementById('search-container');
@@ -128,11 +129,20 @@
             searchInput.focus();
         }
 
+        // Toggle Navbar Menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event propagation so that the document click event doesn't close the menu immediately
             navLinks.classList.toggle('show');
+        });
+
+        // Close Navbar Menu if clicked outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('show');
+            }
         });
 
         // Video Carousel Script
