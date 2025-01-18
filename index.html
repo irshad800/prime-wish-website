@@ -3,86 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>primewish</title>
+    <title>Prime Wish</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script>
-        function toggleSearch() {
-            const searchInput = document.getElementById('search-input');
-            searchInput.classList.toggle('visible');
-            searchInput.focus(); // Automatically focuses the input field
-        }
-
-        // Video Carousel Script
-        const slides = document.querySelector('.slides');
-        const videos = document.querySelectorAll('.carousel-video');
-        let index = 0;
-
-        function showNextSlide() {
-            // Pause all videos before switching the slide
-            videos.forEach(video => video.pause());
-            index = (index + 1) % videos.length; // Loop through slides
-            slides.style.transform = `translateX(-${index * 100}%)`;
-
-            // Play the next video
-            videos[index].play();
-        }
-
-        // Start the first video
-        videos[index].play();
-
-        // Change slide every 3 seconds
-        setInterval(showNextSlide, 3000); 
-
-        // Add event listener to detect when a video finishes playing, then switch to the next one
-        videos.forEach(video => {
-            video.addEventListener('ended', () => {
-                showNextSlide();
-            });
-        });
-    </script>
-
-    <!-- App Bar -->
+    <!-- Header Section -->
     <header>
         <div class="container">
             <img src="image.png" alt="Prime Wish" class="logo">
-            <nav>
-                <ul>
+            <nav class="navbar">
+              
+                <button class="menu-toggle" id="menuToggle">
+                    &#9776; <!-- Menu icon -->
+                </button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#about us">About Us</a></li>
-                    <li><a href="#Businesses">Businesses</a></li>
-                    <li><a href="#Companies">Companies</a></li>
-                    <li><a href="#Network">Network</a></li>
-                    <li><a href="#Prime Products">Prime Products</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-                    <li><a href="#Privacy Policy">Privacy Policy</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#businesses">Businesses</a></li>
+                    <li><a href="#companies">Companies</a></li>
+                    <li><a href="#network">Network</a></li>
+                    <li><a href="#prime-products">Prime Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#privacy-policy">Privacy Policy</a></li>
                 </ul>
             </nav>
             <!-- Search Button -->
             <button class="search-btn" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
 
-            <!-- Search Input (Initially Hidden) -->
-            <div class="search-container">
+            <!-- Search Input -->
+            <div class="search-container" id="search-container">
                 <input type="text" id="search-input" placeholder="Search..." />
             </div>
-        </div>  
+        </div>
     </header>
 
-    <!-- Video Carousel Section -->     
+    <!-- Video Carousel Section -->
     <section class="carousel">
         <div class="slides">
             <div class="slide">
-                <video class="carousel-video" src="https://www.storyblocks.com/video/search/island.mp4 " autoplay muted loop></video>
+                <video class="carousel-video" src="https://www.storyblocks.com/video/search/island.mp4" autoplay muted loop></video>
             </div>
             <div class="slide">
                 <video class="carousel-video" src="https://www.videvo.net/videvo_files/converted/2015_12/preview/151211_01_travel_01.mp4" autoplay muted loop></video>
             </div>
         </div>
     </section>
-    
+
     
     <!-- Info Section -->
     <section id="about" class="info-section">
@@ -112,7 +80,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="about-us">
@@ -152,6 +119,40 @@
         </div>
         <p class="footer-note">Prime of your Life</p>
     </footer>
+    <!-- JavaScript -->
+    <script>
+        function toggleSearch() {
+            const searchInput = document.getElementById('search-input');
+            const searchContainer = document.getElementById('search-container');
+            searchContainer.classList.toggle('visible');
+            searchInput.focus();
+        }
 
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Video Carousel Script
+        const slides = document.querySelector('.slides');
+        const videos = document.querySelectorAll('.carousel-video');
+        let index = 0;
+
+        function showNextSlide() {
+            videos.forEach(video => video.pause());
+            index = (index + 1) % videos.length;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            videos[index].play();
+        }
+
+        videos[index].play();
+        setInterval(showNextSlide, 3000);
+
+        videos.forEach(video => {
+            video.addEventListener('ended', showNextSlide);
+        });
+    </script>
 </body>
 </html>
